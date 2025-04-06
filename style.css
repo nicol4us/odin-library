@@ -19,3 +19,13 @@
     display: grid;
     place-content: center;
 }
+
+.footer > button {
+    padding: 8px 24px;
+    border-radius: 8px;
+    background: #f6eee2;
+    font-weight: bold;
+    color: black;
+    border: none;
+    font-size: 1em;
+}
