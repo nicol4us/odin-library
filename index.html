@@ -13,9 +13,33 @@
 
         </div>
         <div class="footer">
-
+            <button id="addBookButton">Add New Book</button>
+            <dialog class="dialogNewBook">
+                <form id="formAddNewBook" action="">
+                    <div>
+                        <label for="book-title">Book title</label>
+                        <input id="book-title" name="book-title" type="text" required>
+                    </div>
+                    <div>
+                        <label for="author-name">Author name</label>
+                        <input id="author-name" name="author-name" type="text" required>
+                    </div>
+                    <div>
+                        <label for="number-pages">Total pages</label>
+                        <input id="number-pages" name="number-pages" type="number">
+                    </div>
+                    <div>
+                        <label for="status">Status</label>
+                        <select name="status" id="status">
+                            <option value="read">Read</option>
+                            <option value="unread">Unread</option>
+                            <option value="finished">Finished reading</option>
+                        </select>
+                    </div>
+                    <button id="submitButton" type="submit">Insert New Book</button>
+                </form>
+            </dialog>
         </div>
-
     </div>
     
 </body>
