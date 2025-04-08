@@ -1,12 +1,13 @@
 
 // Constant Declarations
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-const addNewBookButton = document.querySelector("#addBookButton");
-const dialogToAddNewBook = document.querySelector(".dialogNewBook");
-const submitButton = document.querySelector("#submitButton");
-const myLibrary = Array.from(document.querySelectorAll(".book-container")).reverse();
-const bookContainerWidth = document.querySelector(".shelf").clientWidth;
-const bookWidth = 80;
+const addNewBookButton      = document.querySelector("#addBookButton");
+const dialogToAddNewBook    = document.querySelector(".dialogNewBook");
+const submitButton          = document.querySelector("#submitButton");
+const shelfBookContainer    = Array.from(document.querySelectorAll(".book-container")).reverse();
+const bookContainerWidth    = document.querySelector(".shelf").clientWidth;
+const bookWidth             = 80;
+const myLibrary             = []
 
 
 // Function decralations
@@ -50,7 +51,7 @@ function Book(title, author, pages, status) {
 
 // (Book, ArrayOfBookContainer) -> ()
 // To add Book into an array of container element
-function addBookToLibrary(book, library , containerWidth) {
+function addBookToShelf(book, library , containerWidth) {
     const maxBookPerShelf = Math.floor(containerWidth/book.width);       
     library.forEach(container => {
         if(container.childElementCount <= maxBookPerShelf) {
