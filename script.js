@@ -60,3 +60,17 @@ function addBookToShelf(book, library , containerWidth) {
         }          
     });    
 }
+
+
+// (Array, Arrayy, Number) -> ()
+// To display all of book
+function displayAllBook(library, bookContainer, bookContainerWidth) {
+    library.forEach(book => {
+        addBookToShelf(book, bookContainer, bookContainerWidth);
+    })
+}
+
+
+
+// Function Executions
+// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
