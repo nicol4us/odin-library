@@ -75,3 +75,13 @@
     border: none;
     font-size: 1em;
 }
+
+.content {       
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    perspective: 600px; 
+    perspective-origin: center top;
+
+}
