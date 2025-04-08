@@ -31,3 +31,18 @@ function createBookElement(container, bookClass, coverClass, pagesClass, backCla
     book.appendChild(createElement(container, topSideClass));    
     return book;
 }
+
+// (String, String, Number, String) -> Object
+// To create Book object that keeps book title, author name, number of pages and status of read
+function Book(title, author, pages, status) {
+    if(!new.target) {
+        throw Error("You have to use new keyword for Book construction");
+    }
+    this.title = title;
+    this.author = author;
+    this.id     = crypto.randomUUID();
+    this.pages = pages;
+    this.status = status;
+    this.width = 75;
+    this.element = createBookElement("div", "book", "cover", "pages", "back", "book-side", "top-pages");
+}
