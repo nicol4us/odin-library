@@ -78,3 +78,16 @@ function displayAllBook(library, bookContainer, bookContainerWidth) {
 addNewBookButton.addEventListener("click", function() {
     dialogToAddNewBook.showModal();
 })
+
+
+submitButton.addEventListener("click", function(event) {
+    const bookTitle     = document.querySelector("#book-title").value;
+    const bookAuthor    = document.querySelector("#author-name").value;
+    const bookPages     = document.querySelector("#number-pages").value;
+    const status        = document.querySelector("#status").value;
+    const book = new Book(bookTitle,bookAuthor,bookPages,status);
+    myLibrary.push(book);    
+    dialogToAddNewBook.close();
+    displayAllBook(myLibrary,shelfBookContainer,bookContainerWidth); 
+    
+})
