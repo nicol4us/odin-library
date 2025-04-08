@@ -20,3 +20,14 @@ function createElement(container, className) {
     return part;  
 }
 
+//(String, String, String, String, String, String, String) -> Element
+// Return Book Element using div and class name 
+function createBookElement(container, bookClass, coverClass, pagesClass, backClass, sideBookClass, topSideClass) {
+    const book      = createElement(container, bookClass); 
+    book.appendChild(createElement(container, coverClass));    
+    book.appendChild(createElement(container,pagesClass));
+    book.appendChild(createElement(container, backClass));
+    book.appendChild(createElement(container, sideBookClass));
+    book.appendChild(createElement(container, topSideClass));    
+    return book;
+}
