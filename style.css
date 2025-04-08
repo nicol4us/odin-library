@@ -91,6 +91,11 @@
     perspective-origin: center top;
 }
 
+.book-shelf {
+    transform-style: preserve-3d;
+    
+}
+
 .shelf {    
     position: relative;
     width: var(--long);
