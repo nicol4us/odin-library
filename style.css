@@ -89,5 +89,30 @@
     align-items: center;
     perspective: 600px; 
     perspective-origin: center top;
+}
 
+.shelf {    
+    position: relative;
+    width: var(--long);
+    height: var(--tall);
+    transform-style: preserve-3d;
+}
+
+.front {
+    position: absolute;
+    background-color: #ada79f;
+    width: var(--long);
+    height: var(--tall);
+    transform: translateZ(calc(var(--depth)/2)); 
+    box-shadow: 0 12px 12px -9px black;   
+}
+
+.top {
+    position: absolute;
+    top: calc(calc(var(--depth)/2 - var(--tall)/2)*-1);
+    width: var(--long);
+    height: var(--depth);
+    background-color: #f6eee2;
+    opacity: 0.6;
+    transform: rotateX(90deg) translateZ(calc(var(--tall)/2));
 }
