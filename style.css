@@ -51,7 +51,13 @@
     height: 100vh;
     background: #ffc18c;
     display: grid;
-    grid-template-rows: 1fr 5fr 1fr;  
+    grid-template-rows: 1fr 5fr 1fr; 
+    --long: 70vw;
+    --tall: 4vh;
+    --depth: 10vh;
+    --bookWidth: 60px;
+    --bookHeight: 80px;
+    --bookDepth: 20px; 
 }
 
 .header {
