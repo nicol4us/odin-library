@@ -186,3 +186,35 @@
     background: red;
     transform: rotateY(90deg) translateX(calc(var(--bookDepth)/2));
 }
+
+.dialogNewBook {
+    border-radius: 8px;
+    border: 1px solid #D6D9DC;
+
+}
+
+
+#formAddNewBook > div {
+    padding: 8px;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+#formAddNewBook input {
+    border-radius: 3px;
+    font-size: 14px;
+    border: 1px solid #D6D9DC;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    
+}
+
+#submitButton {   
+    margin-bottom: 8px;    
+    border-radius: 8px;    
+}
