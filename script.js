@@ -46,3 +46,16 @@ function Book(title, author, pages, status) {
     this.width = 75;
     this.element = createBookElement("div", "book", "cover", "pages", "back", "book-side", "top-pages");
 }
+
+
+// (Book, ArrayOfBookContainer) -> ()
+// To add Book into an array of container element
+function addBookToLibrary(book, library , containerWidth) {
+    const maxBookPerShelf = Math.floor(containerWidth/book.width);       
+    library.forEach(container => {
+        if(container.childElementCount <= maxBookPerShelf) {
+            container.appendChild(book.element);
+            return;        
+        }          
+    });    
+}
