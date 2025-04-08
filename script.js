@@ -74,3 +74,7 @@ function displayAllBook(library, bookContainer, bookContainerWidth) {
 
 // Function Executions
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+addNewBookButton.addEventListener("click", function() {
+    dialogToAddNewBook.showModal();
+})
