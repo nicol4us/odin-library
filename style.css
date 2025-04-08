@@ -121,3 +121,68 @@
     opacity: 0.6;
     transform: rotateX(90deg) translateZ(calc(var(--tall)/2));
 }
+
+.book-container {
+    margin: auto;    
+    display: flex;
+    gap: 10px;
+    justify-content: flex-start;
+}
+
+.book {
+    position: relative;
+    transform-style: preserve-3d;
+    width: var(--bookWidth);
+    height: var(--bookHeight);
+    transform: rotateY(-30deg);
+}
+
+.cover {
+    position: absolute;
+    width: var(--bookWidth);
+    height: var(--bookHeight);
+    background: red;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
+
+.pages{
+    position: absolute;
+    top: 3px;
+    width: var(--bookDepth);
+    height: calc(var(--bookHeight) - 3px * 2);
+    background: white;
+    transform: 
+        translateX(calc(var(--bookWidth) - var(--bookDepth)/2)) 
+        rotateY(90deg)
+        translateX(calc(var(--bookDepth)/2)) ;
+}
+
+.top-pages {
+    position: absolute; 
+    top: calc((var(--bookDepth)/2*-1 + 3px));   
+    width:var(--bookWidth);
+    height: var(--bookDepth);
+    background: white;
+    transform: rotateX(90deg) translateY(calc(var(--bookDepth)/2*-1));
+}
+
+.back {
+    position: absolute;
+    width: var(--bookWidth);
+    height: var(--bookHeight);
+    background: red;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+    transform: translateZ(calc(var(--bookDepth)*-1));
+    
+}
+
+.book-side {
+    position: absolute;
+    left: calc(var(--bookDepth)/2*-1);
+    width: var(--bookDepth);
+    height: var(--bookHeight);
+    background: red;
+    transform: rotateY(90deg) translateX(calc(var(--bookDepth)/2));
+}
