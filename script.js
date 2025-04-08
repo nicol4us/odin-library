@@ -86,8 +86,8 @@ submitButton.addEventListener("click", function(event) {
     const bookPages     = document.querySelector("#number-pages").value;
     const status        = document.querySelector("#status").value;
     const book = new Book(bookTitle,bookAuthor,bookPages,status);
-    myLibrary.push(book);    
-    dialogToAddNewBook.close();
-    displayAllBook(myLibrary,shelfBookContainer,bookContainerWidth); 
-    
+    myLibrary.push(book);
+    event.preventDefault();
+    displayAllBook(myLibrary,shelfBookContainer,bookContainerWidth);  
+    dialogToAddNewBook.close();      
 })
