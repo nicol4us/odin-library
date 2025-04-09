@@ -22,6 +22,7 @@ function createElement(container, className, color) {
     return part;  
 }
 
+
 //(String, String, String, String, String, String, String) -> Element
 // Return Book Element using div and class name 
 function createBookElement(container, bookClass, coverClass, pagesClass, backClass, sideBookClass, topSideClass, color) {
@@ -47,6 +48,14 @@ function Book(title, author, pages, color, status) {
     this.color = color
     this.status = status;
     this.width = 75;
+    this.part = {
+        container: "div",
+        cover: "cover",
+        pages: "pages",
+        back: "back",
+        bookSide: "book-side",
+        topPage: "top-pages"
+    }
     this.element = createBookElement("div", "book", "cover", "pages", "back", "book-side", "top-pages", color);
 }
 
