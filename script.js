@@ -26,9 +26,10 @@ function createElement(container, className, color) {
 
 //(Object, String) -> Element
 // Return Book Element using div and class name 
-function createBookElement(part, color) {
+function createBookElement(part,bookTitle, authorName, color) {
     const book      = createElement(part.container, part.class, ""); 
-    book.appendChild(createElement(part.container, part.cover, color));    
+    const cover     = createCoverBook(part, bookTitle, authorName,color )
+    book.appendChild(cover);    
     book.appendChild(createElement(part.container,part.pages, "white"));
     book.appendChild(createElement(part.container, part.back, color));
     book.appendChild(createElement(part.container, part.bookSide, color));
@@ -73,7 +74,7 @@ function Book(title, author, pages, color, status) {
         titleClass: "book-title",
         authorClass: "book-author"
     }
-    this.element = createBookElement(this.part, color);
+    this.element = createBookElement(this.part, this.title, this.author, color);
 }
 
 
@@ -122,4 +123,3 @@ submitButton.addEventListener("click", function(event) {
 })
 
 
-console.log(createCoverBook(harryPotter.part, harryPotter.title, harryPotter.author, harryPotter.color));
