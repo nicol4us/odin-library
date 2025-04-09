@@ -36,6 +36,19 @@ function createBookElement(part, color) {
     return book;
 }
 
+// (Object, String, String) -> Element
+// To create Element of cover Book which include Book title and author name
+function createCoverBook(part, bookTitle, bookAuthor, color) {
+    var cover   = createElement(part.container, part.cover, color);
+    var title   = createElement(part.container, part.titleClass, "");
+    title.textContent = bookTitle;
+    var author  = createElement(part.container, part.authorClass, "");
+    author.textContent = bookAuthor;
+    cover.appendChild(title);
+    cover.appendChild(author);
+    return cover;
+}
+
 // (String, String, Number, String) -> Object
 // To create Book object that keeps book title, author name, number of pages and status of read
 function Book(title, author, pages, color, status) {
@@ -107,3 +120,6 @@ submitButton.addEventListener("click", function(event) {
     displayAllBook(myLibrary,shelfBookContainer,bookContainerWidth);  
     dialogToAddNewBook.close();      
 })
+
+
+console.log(createCoverBook(harryPotter.part, harryPotter.title, harryPotter.author, harryPotter.color));
