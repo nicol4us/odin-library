@@ -82,11 +82,12 @@ addNewBookButton.addEventListener("click", function() {
 
 
 submitButton.addEventListener("click", function(event) {
-    const bookTitle     = document.querySelector("#book-title").value;
-    const bookAuthor    = document.querySelector("#author-name").value;
-    const bookPages     = document.querySelector("#number-pages").value;
-    const status        = document.querySelector("#status").value;
-    const book = new Book(bookTitle,bookAuthor,bookPages,status);
+    var bookTitle     = document.querySelector("#book-title").value;
+    var bookAuthor    = document.querySelector("#author-name").value;
+    var bookPages     = document.querySelector("#number-pages").value;
+    var bookColor     = document.querySelector("#color").value;
+    var status        = document.querySelector("#status").value;
+    var book = new Book(bookTitle,bookAuthor,bookPages,bookColor ,status);
     myLibrary.push(book);
     event.preventDefault();
     displayAllBook(myLibrary,shelfBookContainer,bookContainerWidth);  
