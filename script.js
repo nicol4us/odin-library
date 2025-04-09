@@ -23,15 +23,15 @@ function createElement(container, className, color) {
 }
 
 
-//(String, String, String, String, String, String, String) -> Element
+//(String, Object, String) -> Element
 // Return Book Element using div and class name 
-function createBookElement(container, bookClass, coverClass, pagesClass, backClass, sideBookClass, topSideClass, color) {
-    const book      = createElement(container, bookClass); 
-    book.appendChild(createElement(container, coverClass, color));    
-    book.appendChild(createElement(container,pagesClass, "white"));
-    book.appendChild(createElement(container, backClass, color));
-    book.appendChild(createElement(container, sideBookClass, color));
-    book.appendChild(createElement(container, topSideClass, "white"));    
+function createBookElement(bookClass,bookPart, color) {
+    const book      = createElement(bookPart.container, bookClass); 
+    book.appendChild(createElement(bookPart.container, bookPart.cover, color));    
+    book.appendChild(createElement(bookPart.container,bookPart.pages, "white"));
+    book.appendChild(createElement(bookPart.container, bookPart.back, color));
+    book.appendChild(createElement(bookPart.container, bookPart.bookSide, color));
+    book.appendChild(createElement(bookPart.container, bookPart.topPage, "white"));    
     return book;
 }
 
@@ -56,7 +56,7 @@ function Book(title, author, pages, color, status) {
         bookSide: "book-side",
         topPage: "top-pages"
     }
-    this.element = createBookElement("div", "book", "cover", "pages", "back", "book-side", "top-pages", color);
+    this.element = createBookElement("book", this.part, color);
 }
 
 
