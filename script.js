@@ -15,9 +15,10 @@ const myLibrary             = []
 
 // (String, String) -> Element
 // To produce element with class 
-function createElement(container, className) {
-    const part = document.createElement(container);
+function createElement(container, className, color) {
+    var part = document.createElement(container);
     part.classList.add(className);  
+    part.style.background = color;
     return part;  
 }
 
