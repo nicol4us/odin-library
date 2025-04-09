@@ -35,7 +35,7 @@ function createBookElement(container, bookClass, coverClass, pagesClass, backCla
 
 // (String, String, Number, String) -> Object
 // To create Book object that keeps book title, author name, number of pages and status of read
-function Book(title, author, pages, status) {
+function Book(title, author, pages, color, status) {
     if(!new.target) {
         throw Error("You have to use new keyword for Book construction");
     }
@@ -43,6 +43,7 @@ function Book(title, author, pages, status) {
     this.author = author;
     this.id     = crypto.randomUUID();
     this.pages = pages;
+    this.color = color
     this.status = status;
     this.width = 75;
     this.element = createBookElement("div", "book", "cover", "pages", "back", "book-side", "top-pages");
