@@ -62,7 +62,7 @@ function Book(title, author, pages, color, status) {
     this.pages = pages;
     this.color = color
     this.status = status;
-    this.width = 75;    
+    this.width = 85;    
     this.part = {  
         class: "book",      
         container: "div",
@@ -81,7 +81,8 @@ function Book(title, author, pages, color, status) {
 // (Book, ArrayOfBookContainer) -> ()
 // To add Book into an array of container element
 function addBookToShelf(book, library , containerWidth) {
-    const maxBookPerShelf = Math.floor(containerWidth/book.width);       
+    const maxBookPerShelf = Math.floor(containerWidth/book.width); 
+    console.log(maxBookPerShelf)      
     library.forEach(container => {
         if(container.childElementCount <= maxBookPerShelf) {
             container.appendChild(book.element);
