@@ -8,6 +8,7 @@ const shelfBookContainer    = Array.from(document.querySelectorAll(".book-contai
 const bookContainerWidth    = document.querySelector(".shelf").clientWidth;
 const bookWidth             = 80;
 const myLibrary             = []
+const harryPotter           = new Book("Harry Potter", "JK Rowling", 500, "red", "read");
 
 
 // Function decralations
@@ -23,15 +24,15 @@ function createElement(container, className, color) {
 }
 
 
-//(String, Object, String) -> Element
+//(Object, String) -> Element
 // Return Book Element using div and class name 
-function createBookElement(bookClass,bookPart, color) {
-    const book      = createElement(bookPart.container, bookClass); 
-    book.appendChild(createElement(bookPart.container, bookPart.cover, color));    
-    book.appendChild(createElement(bookPart.container,bookPart.pages, "white"));
-    book.appendChild(createElement(bookPart.container, bookPart.back, color));
-    book.appendChild(createElement(bookPart.container, bookPart.bookSide, color));
-    book.appendChild(createElement(bookPart.container, bookPart.topPage, "white"));    
+function createBookElement(part, color) {
+    const book      = createElement(part.container, part.class, ""); 
+    book.appendChild(createElement(part.container, part.cover, color));    
+    book.appendChild(createElement(part.container,part.pages, "white"));
+    book.appendChild(createElement(part.container, part.back, color));
+    book.appendChild(createElement(part.container, part.bookSide, color));
+    book.appendChild(createElement(part.container, part.topPage, "white"));   
     return book;
 }
 
@@ -47,8 +48,9 @@ function Book(title, author, pages, color, status) {
     this.pages = pages;
     this.color = color
     this.status = status;
-    this.width = 75;
-    this.part = {
+    this.width = 75;    
+    this.part = {  
+        class: "book",      
         container: "div",
         cover: "cover",
         pages: "pages",
@@ -56,7 +58,7 @@ function Book(title, author, pages, color, status) {
         bookSide: "book-side",
         topPage: "top-pages"
     }
-    this.element = createBookElement("book", this.part, color);
+    this.element = createBookElement(this.part, color);
 }
 
 
