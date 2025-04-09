@@ -56,7 +56,9 @@ function Book(title, author, pages, color, status) {
         pages: "pages",
         back: "back",
         bookSide: "book-side",
-        topPage: "top-pages"
+        topPage: "top-pages",
+        titleClass: "book-title",
+        authorClass: "book-author"
     }
     this.element = createBookElement(this.part, color);
 }
