@@ -46,7 +46,8 @@ function createBookElement(part,bookTitle, authorName, color) {
     book.appendChild(createElement(part.container,part.pages, "white"));
     book.appendChild(createElement(part.container, part.back, color));
     book.appendChild(createElement(part.container, part.bookSide, color));
-    book.appendChild(createElement(part.container, part.topPage, "white"));   
+    book.appendChild(createElement(part.container, part.topPage, "white"));
+    book.appendChild(createBookDialog(part, bookTitle, authorName));   
     return book;
 }
 
