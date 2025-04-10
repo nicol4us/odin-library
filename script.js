@@ -37,17 +37,17 @@ function createBookDialog(part, bookTitle, bookAuthor) {
 }
 
 
-//(Object, String) -> Element
-// Return Book Element using div and class name 
-function createBookElement(part,bookTitle, authorName, color) {
-    const book      = createElement(part.container, part.class, ""); 
-    const cover     = createCoverBook(part, bookTitle, authorName,color )
+//(Object) -> Element
+// Return Book Element 
+function createBookElement(self) {
+    const book      = createElement(self.part.container, self.part.class, ""); 
+    const cover     = createCoverBook(self.part, self.title, self.author, self.color )
     book.appendChild(cover);    
-    book.appendChild(createElement(part.container,part.pages, "white"));
-    book.appendChild(createElement(part.container, part.back, color));
-    book.appendChild(createElement(part.container, part.bookSide, color));
-    book.appendChild(createElement(part.container, part.topPage, "white"));
-    book.appendChild(createBookDialog(part, bookTitle, authorName));   
+    book.appendChild(createElement(self.part.container,self.part.pages, "white"));
+    book.appendChild(createElement(self.part.container, self.part.back, self.color));
+    book.appendChild(createElement(self.part.container, self.part.bookSide, self.color));
+    book.appendChild(createElement(self.part.container, self.part.topPage, "white"));
+    book.appendChild(createBookDialog(part, self.title, self.author));   
     return book;
 }
 
@@ -89,9 +89,9 @@ function Book(title, author, pages, color, status) {
         titleClass: "book-title",
         authorClass: "book-author"
     }
-    this.element = createBookElement(this.part, this.title, this.author, color);
-    this.bookDialog = this.element.querySelector(this.part.dialog); 
     var self = this;
+    this.element = createBookElement(self);
+    this.bookDialog = this.element.querySelector(this.part.dialog);     
     self.element.addEventListener("click", function() {
         self.bookDialog.showModal();
     })   
