@@ -23,14 +23,27 @@ function createElement(container, className, color) {
     return part;  
 }
 
+// (String, String, String, String) -> Element
+// To create one container for two element
+function createDialogSection(div,upperClass, leftElement, leftClass, rightElement, rightClass) {
+    var container = createElement(div, upperClass, "");
+    var leftSection = createElement(div, leftClass, "");
+    leftSection.textContent = leftElement;
+    var rightSection = createElement(div, rightClass, "");
+    rightSection.textContent = rightElement;
+    container.appendChild(leftSection);
+    container.appendChild(rightSection);
+    return container;
+}
+
 // (Object, String, String) -> Element
 // To produce Element using dialog as tag
-function createBookDialog(part, bookTitle, bookAuthor) {
-    var dialog = document.createElement(part.dialog);
-    var titleSection = document.createElement(part.container);
-    titleSection.textContent = bookTitle
-    var authorSection = document.createElement(part.container);
-    authorSection.textContent = bookAuthor;
+function createBookDialog(self) {
+    var dialog = document.createElement(self.part.dialog);
+    var titleSection = document.createElement(self.part.container);
+    titleSection.textContent = self.title;
+    var authorSection = document.createElement(self.part.container);
+    authorSection.textContent = self.author;
     dialog.appendChild(titleSection);
     dialog.appendChild(authorSection);
     return dialog;
@@ -47,7 +60,7 @@ function createBookElement(self) {
     book.appendChild(createElement(self.part.container, self.part.back, self.color));
     book.appendChild(createElement(self.part.container, self.part.bookSide, self.color));
     book.appendChild(createElement(self.part.container, self.part.topPage, "white"));
-    book.appendChild(createBookDialog(part, self.title, self.author));   
+    book.appendChild(createBookDialog(self));   
     return book;
 }
 
