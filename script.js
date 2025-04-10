@@ -29,7 +29,7 @@ function createDialogSection(div,upperClass, leftElement, leftClass, rightElemen
     var container = createElement(div, upperClass, "");
     var leftSection = createElement(div, leftClass, "");
     leftSection.textContent = leftElement;
-    var rightSection = createElement(div, rightClass, "");
+    var rightSection = createElement("button", rightClass, "");
     rightSection.textContent = rightElement;
     container.appendChild(leftSection);
     container.appendChild(rightSection);
@@ -40,12 +40,12 @@ function createDialogSection(div,upperClass, leftElement, leftClass, rightElemen
 // To produce Element using dialog as tag
 function createBookDialog(self) {
     var dialog = document.createElement(self.part.dialog);
-    var titleSection = document.createElement(self.part.container);
-    titleSection.textContent = self.title;
-    var authorSection = document.createElement(self.part.container);
-    authorSection.textContent = self.author;
-    dialog.appendChild(titleSection);
-    dialog.appendChild(authorSection);
+    var title = createDialogSection(self.part.container, "dialog-section", self.title, "title-section-dialog", "Edit", "edit-title-button");
+    var author = createDialogSection(self.part.container, "dialog-section", self.author, "author-section-dialog", "Edit", "edit-author-button");
+    var status = createDialogSection(self.part.container, "dialog-section", self.status, "status-section-dialog", "Edit", "edit-status-button");
+    dialog.appendChild(title);
+    dialog.appendChild(author);
+    dialog.appendChild(status);
     return dialog;
 }
 
