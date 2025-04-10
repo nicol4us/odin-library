@@ -23,6 +23,19 @@ function createElement(container, className, color) {
     return part;  
 }
 
+// (Object, String, String) -> Element
+// To produce Element using dialog as tag
+function createBookDialog(part, bookTitle, bookAuthor) {
+    var dialog = document.createElement(part.dialog);
+    var titleSection = document.createElement(part.container);
+    titleSection.textContent = bookTitle
+    var authorSection = document.createElement(part.container);
+    authorSection.textContent = bookAuthor;
+    dialog.appendChild(titleSection);
+    dialog.appendChild(authorSection);
+    return dialog;
+}
+
 
 //(Object, String) -> Element
 // Return Book Element using div and class name 
@@ -66,6 +79,7 @@ function Book(title, author, pages, color, status) {
     this.part = {  
         class: "book",      
         container: "div",
+        dialog: "dialog",
         cover: "cover",
         pages: "pages",
         back: "back",
