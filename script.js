@@ -90,6 +90,11 @@ function Book(title, author, pages, color, status) {
         authorClass: "book-author"
     }
     this.element = createBookElement(this.part, this.title, this.author, color);
+    this.bookDialog = this.element.querySelector(this.part.dialog); 
+    var self = this;
+    self.element.addEventListener("click", function() {
+        self.bookDialog.showModal();
+    })   
 }
 
 
@@ -110,8 +115,8 @@ function addBookToShelf(book, library , containerWidth) {
 // (Array, Arrayy, Number) -> ()
 // To display all of book
 function displayAllBook(library, bookContainer, bookContainerWidth) {
-    library.forEach(book => {
-        addBookToShelf(book, bookContainer, bookContainerWidth);
+    library.forEach(book => {        
+        addBookToShelf(book, bookContainer, bookContainerWidth);       
     })
 }
 
