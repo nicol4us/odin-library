@@ -23,16 +23,6 @@ function createPart(container, className, color, text) {
     return part;  
 }
 
-// (String, String, String, String) -> Element
-// To create one container for two element
-function createDialogSection(div,upperClass, leftElement, leftClass, rightElement, rightClass) {
-    var container = createPart(div, upperClass, "");
-    var leftSection = createPart(div, leftClass, "", leftElement);    
-    var rightSection = createPart("button", rightClass, "", rightElement);    
-    container.appendChild(leftSection);
-    container.appendChild(rightSection);
-    return container;
-}
 
 // (Object, String, String) -> Element
 // To produce Element using dialog as tag
