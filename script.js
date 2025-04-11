@@ -27,10 +27,8 @@ function createPart(container, className, color, text) {
 // To create one container for two element
 function createDialogSection(div,upperClass, leftElement, leftClass, rightElement, rightClass) {
     var container = createPart(div, upperClass, "");
-    var leftSection = createPart(div, leftClass, "");
-    leftSection.textContent = leftElement;
-    var rightSection = createPart("button", rightClass, "");
-    rightSection.textContent = rightElement;
+    var leftSection = createPart(div, leftClass, "", leftElement);    
+    var rightSection = createPart("button", rightClass, "", rightElement);    
     container.appendChild(leftSection);
     container.appendChild(rightSection);
     return container;
@@ -39,14 +37,26 @@ function createDialogSection(div,upperClass, leftElement, leftClass, rightElemen
 // (Object, String, String) -> Element
 // To produce Element using dialog as tag
 function createBookDialog(self) {
-    var dialog = document.createElement(self.part.dialog);
-    var title = createDialogSection(self.part.container, "dialog-section", self.title, "title-section-dialog", "Edit", "edit-title-button");
-    var author = createDialogSection(self.part.container, "dialog-section", self.author, "author-section-dialog", "Edit", "edit-author-button");
-    var status = createDialogSection(self.part.container, "dialog-section", self.status, "status-section-dialog", "Edit", "edit-status-button");
+    var dialog = createPart("dialog", "dialog-section")
+    var title = createPart(self.part.container, "dialog-text", "", self.title);
+    var editTitle = createPart("button", "edit-button", "", "Edit Title");
+    var author = createPart(self.part.container, "dialog-text","" ,self.author);
+    var editAuthor = createPart("button", "edit-button", "", "Edit Name");
+    var status = createPart(self.part.container, "dialog-text", "", self.status);
+    var editStatus = createPart("button", "edit-button", "", "Edit Status");
+    var closeDialog = createPart("button", "dialog-button", "", "Close");
+    var removeBook = createPart("button", "dialog-button", "", "Remove Book");
     dialog.appendChild(title);
+    dialog.appendChild(editTitle);
     dialog.appendChild(author);
+    dialog.appendChild(editAuthor);
     dialog.appendChild(status);
+    dialog.appendChild(editStatus);
+    dialog.appendChild(closeDialog);
+    dialog.appendChild(removeBook);
+    console.table(dialog);
     return dialog;
+
 }
 
 
