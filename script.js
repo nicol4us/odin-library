@@ -27,7 +27,8 @@ function createPart(container, className, color, text) {
 // (Object, String, String) -> Element
 // To produce Element using dialog as tag
 function createBookDialog(self) {
-    var dialog = createPart("dialog", "dialog-section")
+    var dialog = document.createElement("dialog");
+    var container = createPart(self.part.container, "dialog-section");
     var title = createPart(self.part.container, "dialog-text", "", self.title);
     var editTitle = createPart("button", "edit-button", "", "Edit Title");
     var author = createPart(self.part.container, "dialog-text","" ,self.author);
@@ -36,14 +37,15 @@ function createBookDialog(self) {
     var editStatus = createPart("button", "edit-button", "", "Edit Status");
     var closeDialog = createPart("button", "dialog-button", "", "Close");
     var removeBook = createPart("button", "dialog-button", "", "Remove Book");
-    dialog.appendChild(title);
-    dialog.appendChild(editTitle);
-    dialog.appendChild(author);
-    dialog.appendChild(editAuthor);
-    dialog.appendChild(status);
-    dialog.appendChild(editStatus);
-    dialog.appendChild(closeDialog);
-    dialog.appendChild(removeBook);
+    container.appendChild(title);
+    container.appendChild(editTitle);
+    container.appendChild(author);
+    container.appendChild(editAuthor);
+    container.appendChild(status);
+    container.appendChild(editStatus);
+    container.appendChild(closeDialog);
+    container.appendChild(removeBook);
+    dialog.appendChild(container);
     console.table(dialog);
     return dialog;
 
