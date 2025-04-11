@@ -247,3 +247,9 @@ form {
   grid-template-columns: 3fr 1fr;
   gap: 16px;
 }
+
+.dialog-button-container {
+  margin-top: 16px;
+  display: flex;
+  justify-content: space-around;
+}

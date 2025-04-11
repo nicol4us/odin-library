@@ -29,6 +29,7 @@ function createPart(container, className, color, text) {
 function createBookDialog(self) {
     var dialog = document.createElement("dialog");
     var container = createPart(self.part.container, "dialog-section");
+    var buttonContainer = createPart(self.part.container, "dialog-button-container");
     var title = createPart(self.part.container, "dialog-text", "", self.title);
     var editTitle = createPart("button", "edit-button", "", "Edit Title");
     var author = createPart(self.part.container, "dialog-text","" ,self.author);
@@ -42,11 +43,11 @@ function createBookDialog(self) {
     container.appendChild(author);
     container.appendChild(editAuthor);
     container.appendChild(status);
-    container.appendChild(editStatus);
-    container.appendChild(closeDialog);
-    container.appendChild(removeBook);
+    container.appendChild(editStatus);    
+    buttonContainer.appendChild(closeDialog);
+    buttonContainer.appendChild(removeBook);
     dialog.appendChild(container);
-    console.table(dialog);
+    dialog.appendChild(buttonContainer);
     return dialog;
 
 }
