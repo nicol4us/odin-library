@@ -6,7 +6,6 @@ const dialogToAddNewBook    = document.querySelector(".dialogNewBook");
 const submitButton          = document.querySelector("#submitButton");
 const shelfBookContainer    = Array.from(document.querySelectorAll(".book-container")).reverse();
 const bookContainerWidth    = document.querySelector(".shelf").clientWidth;
-const bookWidth             = 80;
 const myLibrary             = []
 const harryPotter           = new Book("Harry Potter", "JK Rowling", 500, "red", "read");
 
@@ -88,7 +87,7 @@ function Book(title, author, pages, color, status) {
     this.pages = pages;
     this.color = color
     this.status = status;
-    this.width  = 100;      
+    this.width  = 120;      
     this.part = {  
         class: "book",      
         container: "div",
