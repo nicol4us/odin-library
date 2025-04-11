@@ -30,14 +30,14 @@ function createBookDialog(self) {
     var dialog = document.createElement("dialog");
     var container = createPart(self.part.container, "dialog-section");
     var buttonContainer = createPart(self.part.container, "dialog-button-container");
-    var title = createPart(self.part.container, "dialog-text", "", self.title);
+    var title = createPart(self.part.container, "dialog-text", "", "Book Title : " + self.title);
     var editTitle = createPart("button", "edit-button", "", "Edit Title");
-    var author = createPart(self.part.container, "dialog-text","" ,self.author);
+    var author = createPart(self.part.container, "dialog-text","" ,"Author Name : " + self.author);
     var editAuthor = createPart("button", "edit-button", "", "Edit Name");
-    var status = createPart(self.part.container, "dialog-text", "", self.status);
+    var status = createPart(self.part.container, "dialog-text", "", "Reading status : " + self.status);
     var editStatus = createPart("button", "edit-button", "", "Edit Status");
     var closeDialog = createPart("button", "dialog-button", "", "Close");
-    var removeBook = createPart("button", "dialog-button", "", "Remove Book");
+    var removeBook = createPart("button", "dialog-button", "", "Remove Book");    
     container.appendChild(title);
     container.appendChild(editTitle);
     container.appendChild(author);
