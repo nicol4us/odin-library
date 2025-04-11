@@ -27,7 +27,7 @@ function createPart(container, className, color, text) {
 // (Object, String, String) -> Element
 // To produce Element using dialog as tag
 function createBookDialog(self) {
-    var dialog = document.createElement("dialog");
+    var dialog = createPart("dialog", "dialog-book");
     var container = createPart(self.part.container, "dialog-section");
     var buttonContainer = createPart(self.part.container, "dialog-button-container");
     var title = createPart(self.part.container, "dialog-text", "", "Book Title : " + self.title);
