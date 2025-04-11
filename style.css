@@ -55,9 +55,9 @@
     --long: 70vw;
     --tall: 4vh;
     --depth: 10vh;
-    --bookWidth: 75px;
-    --bookHeight: 95px;
-    --bookDepth: 20px; 
+    --bookWidth: 100px;
+    --bookHeight: 150px;
+    --bookDepth: 30px; 
 }
 
 .header {
