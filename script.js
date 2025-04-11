@@ -14,22 +14,23 @@ const harryPotter           = new Book("Harry Potter", "JK Rowling", 500, "red",
 // Function decralations
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-// (String, String) -> Element
-// To produce element with class 
-function createElement(container, className, color) {
+// (String, String, String, String) -> Element
+// To produce element with class, color and text 
+function createPart(container, className, color, text) {
     var part = document.createElement(container);
     part.classList.add(className);  
     part.style.background = color;
+    part.textContent = text;
     return part;  
 }
 
 // (String, String, String, String) -> Element
 // To create one container for two element
 function createDialogSection(div,upperClass, leftElement, leftClass, rightElement, rightClass) {
-    var container = createElement(div, upperClass, "");
-    var leftSection = createElement(div, leftClass, "");
+    var container = createPart(div, upperClass, "");
+    var leftSection = createPart(div, leftClass, "");
     leftSection.textContent = leftElement;
-    var rightSection = createElement("button", rightClass, "");
+    var rightSection = createPart("button", rightClass, "");
     rightSection.textContent = rightElement;
     container.appendChild(leftSection);
     container.appendChild(rightSection);
@@ -53,13 +54,13 @@ function createBookDialog(self) {
 //(Object) -> Element
 // Return Book Element 
 function createBookElement(self) {
-    const book      = createElement(self.part.container, self.part.class, ""); 
+    const book      = createPart(self.part.container, self.part.class, ""); 
     const cover     = createCoverBook(self.part, self.title, self.author, self.color )
     book.appendChild(cover);    
-    book.appendChild(createElement(self.part.container,self.part.pages, "white"));
-    book.appendChild(createElement(self.part.container, self.part.back, self.color));
-    book.appendChild(createElement(self.part.container, self.part.bookSide, self.color));
-    book.appendChild(createElement(self.part.container, self.part.topPage, "white"));
+    book.appendChild(createPart(self.part.container,self.part.pages, "white"));
+    book.appendChild(createPart(self.part.container, self.part.back, self.color));
+    book.appendChild(createPart(self.part.container, self.part.bookSide, self.color));
+    book.appendChild(createPart(self.part.container, self.part.topPage, "white"));
     book.appendChild(createBookDialog(self));   
     return book;
 }
@@ -67,11 +68,9 @@ function createBookElement(self) {
 // (Object, String, String) -> Element
 // To create Element of cover Book which include Book title and author name
 function createCoverBook(part, bookTitle, bookAuthor, color) {
-    var cover   = createElement(part.container, part.cover, color);
-    var title   = createElement(part.container, part.titleClass, "");
-    title.textContent = bookTitle;
-    var author  = createElement(part.container, part.authorClass, "");
-    author.textContent = bookAuthor;
+    var cover   = createPart(part.container, part.cover, color);
+    var title   = createPart(part.container, part.titleClass, "", bookTitle);    
+    var author  = createPart(part.container, part.authorClass, "", bookAuthor);    
     cover.appendChild(title);
     cover.appendChild(author);
     return cover;
