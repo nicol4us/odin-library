@@ -28,6 +28,7 @@ function createPart(container, className, color, text) {
 // To produce Element using dialog as tag
 function createBookDialog(self) {
     var dialog = createPart("dialog", "dialog-book");
+    /*
     var container = createPart(self.part.container, "dialog-section");
     var buttonContainer = createPart(self.part.container, "dialog-button-container");
     var title = createPart(self.part.container, "dialog-text", "", "Book Title : " + self.title);
@@ -36,8 +37,11 @@ function createBookDialog(self) {
     var editAuthor = createPart("button", "edit-button", "", "Edit Name");
     var status = createPart(self.part.container, "dialog-text", "", "Reading status : " + self.status);
     var editStatus = createPart("button", "edit-button", "", "Edit Status");
+    */
     var closeDialog = createPart("button", "dialog-close-button", "", "Close");
-    var removeBook = createPart("button", "dialog-delete-button", "", "Remove Book");    
+    /*
+    var removeBook = createPart("button", "dialog-delete-button", "", "Remove Book");   
+    
     container.appendChild(title);
     container.appendChild(editTitle);
     container.appendChild(author);
@@ -45,9 +49,10 @@ function createBookDialog(self) {
     container.appendChild(status);
     container.appendChild(editStatus);    
     buttonContainer.appendChild(closeDialog);
-    buttonContainer.appendChild(removeBook);
-    dialog.appendChild(container);
-    dialog.appendChild(buttonContainer);
+    buttonContainer.appendChild(removeBook);  
+    */  
+    //dialog.appendChild(container);
+    dialog.appendChild(closeDialog);
     return dialog;
 
 }
@@ -105,13 +110,14 @@ function Book(title, author, pages, color, status) {
     }
     var self = this;
     this.element = createBookElement(self);
-    this.bookDialog = this.element.querySelector(this.part.dialog); 
+    this.bookDialog = this.element.querySelector(".dialog-book"); 
     this.closeDialogButton = this.element.querySelector(".dialog-close-button");   
     self.element.addEventListener("click", function() {
         self.bookDialog.showModal();
     })
-    self.closeDialogButton.addEventListener("click", function() {
-        self.bookDialog.close();
+    self.closeDialogButton.addEventListener("click", function() { 
+        console.log(self.bookDialog) ;      
+        self.bookDialog.close();        
     })
      
 }
