@@ -118,7 +118,8 @@ function Book(title, author, pages, color, status) {
         self.bookDialog.showModal();
     })
     self.closeDialogButton.addEventListener("click", function() {              
-        self.bookDialog.close();        
+        self.bookDialog.close(); 
+        console.log("Is book dialog open: " + self.bookDialog.open)       
     })
      
 }
