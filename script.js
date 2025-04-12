@@ -38,7 +38,7 @@ function createBookDialog(self) {
     var status = createPart(self.part.container, "dialog-text", "", "Reading status : " + self.status);
     var editStatus = createPart("button", "edit-button", "", "Edit Status");
     */
-    var closeDialog = createPart("button", "dialog-close-button", "", "Close");
+    //var closeDialog = createPart("button", "dialog-close-button", "", "Close");
     /*
     var removeBook = createPart("button", "dialog-delete-button", "", "Remove Book");   
     
@@ -52,7 +52,9 @@ function createBookDialog(self) {
     buttonContainer.appendChild(removeBook);  
     */  
     //dialog.appendChild(container);
-    dialog.appendChild(closeDialog);
+    var closeBtn = document.createElement("button");
+    closeBtn.textContent = "OK"
+    dialog.appendChild(closeBtn);
     return dialog;
 
 }
@@ -111,12 +113,11 @@ function Book(title, author, pages, color, status) {
     var self = this;
     this.element = createBookElement(self);
     this.bookDialog = this.element.querySelector(".dialog-book"); 
-    this.closeDialogButton = this.element.querySelector(".dialog-close-button");   
+    this.closeDialogButton = this.element.querySelector("button");   
     self.element.addEventListener("click", function() {
         self.bookDialog.showModal();
     })
-    self.closeDialogButton.addEventListener("click", function() { 
-        console.log(self.bookDialog) ;      
+    self.closeDialogButton.addEventListener("click", function() {              
         self.bookDialog.close();        
     })
      
