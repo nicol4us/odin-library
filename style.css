@@ -243,8 +243,14 @@ form {
 }
 
 
-.book-dialog-section {
+.section-part-dialog {
   display: grid;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: 2fr 2fr 1fr;
+  padding: 8px;
 }
 
+.dialog-button-container {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 8px;
+}
