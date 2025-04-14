@@ -23,11 +23,23 @@ function createPart(container, className, color, text) {
     return part;  
 }
 
+
+
 // (Element Array) -> Element
 // To append all Array element into one element
 function appendAllElement(parent, arrayChildElement) {
     arrayChildElement.forEach(child => parent.appendChild(child));
     return parent;
+}
+
+// (String, String, String, String) -> Element
+// To create dialog book section that consist 3 element
+function createBookDialogSection(container, sectionName, titleName, buttonName ) {    
+    var firstPart = createPart(container, "part", "", sectionName);
+    var secondPart = createPart(container, "part", "", titleName);
+    var thirdPart = createPart("button", "part", "", buttonName);
+    var mainContainer = appendAllElement(createPart(container, "section-part-dialog"), [firstPart, secondPart, thirdPart]);
+    return mainContainer;
 }
 
 
