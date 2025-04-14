@@ -23,6 +23,13 @@ function createPart(container, className, color, text) {
     return part;  
 }
 
+// (Element Array) -> Element
+// To append all Array element into one element
+function appendAllElement(parent, arrayChildElement) {
+    arrayChildElement.forEach(child => parent.appendChild(child));
+    return parent;
+}
+
 
 // (Object, String, String) -> Element
 // To produce Element using dialog as tag
