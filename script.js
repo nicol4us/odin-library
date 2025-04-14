@@ -35,8 +35,6 @@ function appendAllElement(parent, arrayChildElement) {
 // To produce Element using dialog as tag
 function createBookDialog(self) {
     var dialog = createPart("dialog", "dialog-book");    
-    var container = createPart(self.part.container, "dialog-section");
-    var buttonContainer = createPart(self.part.container, "dialog-button-container");
     var title = createPart(self.part.container, "dialog-text", "", "Book Title : " + self.title);
     var editTitle = createPart("button", "edit-button", "", "Edit Title");
     var author = createPart(self.part.container, "dialog-text","" ,"Author Name : " + self.author);
@@ -45,15 +43,8 @@ function createBookDialog(self) {
     var editStatus = createPart("button", "edit-button", "", "Edit Status");    
     var closeDialog = createPart("button", "dialog-close-button", "", "Close");    
     var removeBook = createPart("button", "dialog-delete-button", "", "Remove Book");
-    
-    container.appendChild(title);
-    container.appendChild(editTitle);
-    container.appendChild(author);
-    container.appendChild(editAuthor);
-    container.appendChild(status);
-    container.appendChild(editStatus);    
-    buttonContainer.appendChild(closeDialog);
-    buttonContainer.appendChild(removeBook);     
+    var container = appendAllElement(createPart(self.part.container,"book-dialog-section"), [title, editTitle, author, editAuthor, status, editStatus]);
+    var buttonContainer = appendAllElement(createPart(self.part.container, "dialog-button-container"), [closeDialog, removeBook]);     
     dialog.appendChild(container);    
     dialog.appendChild(buttonContainer);
     return dialog;
