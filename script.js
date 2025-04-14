@@ -27,8 +27,7 @@ function createPart(container, className, color, text) {
 // (Object, String, String) -> Element
 // To produce Element using dialog as tag
 function createBookDialog(self) {
-    var dialog = createPart("dialog", "dialog-book");
-    /*
+    var dialog = createPart("dialog", "dialog-book");    
     var container = createPart(self.part.container, "dialog-section");
     var buttonContainer = createPart(self.part.container, "dialog-button-container");
     var title = createPart(self.part.container, "dialog-text", "", "Book Title : " + self.title);
@@ -36,11 +35,9 @@ function createBookDialog(self) {
     var author = createPart(self.part.container, "dialog-text","" ,"Author Name : " + self.author);
     var editAuthor = createPart("button", "edit-button", "", "Edit Name");
     var status = createPart(self.part.container, "dialog-text", "", "Reading status : " + self.status);
-    var editStatus = createPart("button", "edit-button", "", "Edit Status");
-    */
-    //var closeDialog = createPart("button", "dialog-close-button", "", "Close");
-    /*
-    var removeBook = createPart("button", "dialog-delete-button", "", "Remove Book");   
+    var editStatus = createPart("button", "edit-button", "", "Edit Status");    
+    var closeDialog = createPart("button", "dialog-close-button", "", "Close");    
+    var removeBook = createPart("button", "dialog-delete-button", "", "Remove Book");
     
     container.appendChild(title);
     container.appendChild(editTitle);
@@ -49,14 +46,10 @@ function createBookDialog(self) {
     container.appendChild(status);
     container.appendChild(editStatus);    
     buttonContainer.appendChild(closeDialog);
-    buttonContainer.appendChild(removeBook);  
-    */  
-    //dialog.appendChild(container);
-    var closeBtn = document.createElement("button");
-    closeBtn.textContent = "OK"
-    dialog.appendChild(closeBtn);
+    buttonContainer.appendChild(removeBook);     
+    dialog.appendChild(container);    
+    dialog.appendChild(buttonContainer);
     return dialog;
-
 }
 
 
@@ -69,8 +62,7 @@ function createBookElement(self) {
     book.appendChild(createPart(self.part.container,self.part.pages, "white"));
     book.appendChild(createPart(self.part.container, self.part.back, self.color));
     book.appendChild(createPart(self.part.container, self.part.bookSide, self.color));
-    book.appendChild(createPart(self.part.container, self.part.topPage, "white"));
-    book.appendChild(createBookDialog(self));   
+    book.appendChild(createPart(self.part.container, self.part.topPage, "white"));    
     return book;
 }
 
@@ -112,8 +104,8 @@ function Book(title, author, pages, color, status) {
     }
     var self = this;
     this.element = createBookElement(self);
-    this.bookDialog = this.element.querySelector(".dialog-book"); 
-    this.closeDialogButton = this.element.querySelector("button");   
+    this.bookDialog = createBookDialog(self);
+    this.closeDialogButton = this.bookDialog.querySelector(".dialog-close-button"); 
     self.element.addEventListener("click", function() {
         self.bookDialog.showModal();
     })
@@ -132,6 +124,7 @@ function addBookToShelf(book, library , containerWidth) {
     library.forEach(container => {
         if(container.childElementCount <= maxBookPerShelf) {
             container.appendChild(book.element);
+            container.appendChild(book.bookDialog);
             return;        
         }          
     });    
