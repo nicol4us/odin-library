@@ -120,8 +120,9 @@ function Book(title, author, pages, color, status) {
     this.element = createBookElement(self);
     this.bookDialog = createBookDialog(self);
     this.closeDialogButton = this.bookDialog.querySelector(".dialog-close-button"); 
-    self.element.addEventListener("click", function() {
+    self.element.addEventListener("click", function(event) {
         self.bookDialog.showModal();
+        setXPositionDialog(event,self);
     })
     self.closeDialogButton.addEventListener("click", function() {              
         self.bookDialog.close();                
