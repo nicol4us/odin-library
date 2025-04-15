@@ -58,6 +58,12 @@ function setYPositionDialog(event, self) {
     self.bookDialog.style.top = (yPosition - (dialogHeight / 2)) + "px";
 }
 
+// (Array, Object) -> ()
+// To remove object inside array
+function removeBook(array, self) {
+    array.push(self);
+}
+
 // (Object, String, String) -> Element
 // To produce Element using dialog as tag
 function createBookDialog(self) {
