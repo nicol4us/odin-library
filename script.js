@@ -6,6 +6,7 @@ const dialogToAddNewBook    = document.querySelector(".dialogNewBook");
 const submitButton          = document.querySelector("#submitButton");
 const shelfBookContainer    = Array.from(document.querySelectorAll(".book-container")).reverse();
 const bookContainerWidth    = document.querySelector(".shelf").clientWidth;
+const formNewBook           = document.querySelector("#formAddNewBook");
 const myLibrary             = []
 const harryPotter           = new Book("Harry Potter", "JK Rowling", 500, "red", "read");
 
@@ -198,7 +199,8 @@ submitButton.addEventListener("click", function(event) {
     myLibrary.push(book);
     event.preventDefault();
     displayAllBook(myLibrary,shelfBookContainer,bookContainerWidth);  
-    dialogToAddNewBook.close();      
+    dialogToAddNewBook.close();
+    formNewBook.reset();    
 })
 
 
