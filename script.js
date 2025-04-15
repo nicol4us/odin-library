@@ -42,6 +42,13 @@ function createBookDialogSection(container, sectionName, titleName, buttonName )
     return mainContainer;
 }
 
+// (Event, Object) -> ()
+// To set X position of dialog element according from click event position
+function setXPositionDialog(event, self) {
+    var xPosition = event.clientX;
+    var dialogWidth = self.bookDialog.clientWidth;
+    self.bookDialog.style.left = (xPosition - (dialogWidth / 2)) + "px";
+}
 
 // (Object, String, String) -> Element
 // To produce Element using dialog as tag
