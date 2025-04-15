@@ -61,7 +61,11 @@ function setYPositionDialog(event, self) {
 // (Array, Object) -> ()
 // To remove object inside array
 function removeBook(array, self) {
-    array.push(self);
+    array.forEach((item, index) => {
+        if(item.id === self.id) {
+            array.splice(index,1);
+        }
+    })
 }
 
 // (Object, String, String) -> Element
@@ -146,6 +150,8 @@ function Book(title, author, pages, color, status) {
     self.removeBookButton.addEventListener("click", function() {
         self.element.remove();
         self.bookDialog.remove();
+        console.log(myLibrary);
+        removeBook(myLibrary, self);
         console.log(myLibrary);
     })
      
