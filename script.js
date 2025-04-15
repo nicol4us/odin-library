@@ -128,6 +128,7 @@ function Book(title, author, pages, color, status) {
     this.element = createBookElement(self);
     this.bookDialog = createBookDialog(self);
     this.closeDialogButton = this.bookDialog.querySelector(".dialog-close-button"); 
+    this.removeBookButton = this.bookDialog.querySelector(".dialog-delete-button");
     self.element.addEventListener("click", function(event) {
         self.bookDialog.showModal();
         setXPositionDialog(event,self);
@@ -135,6 +136,11 @@ function Book(title, author, pages, color, status) {
     })
     self.closeDialogButton.addEventListener("click", function() {              
         self.bookDialog.close();                
+    })
+    self.removeBookButton.addEventListener("click", function() {
+        self.element.remove();
+        self.bookDialog.remove();
+        console.log(myLibrary);
     })
      
 }
