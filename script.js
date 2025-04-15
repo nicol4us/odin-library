@@ -149,10 +149,8 @@ function Book(title, author, pages, color, status) {
     })
     self.removeBookButton.addEventListener("click", function() {
         self.element.remove();
-        self.bookDialog.remove();
-        console.log(myLibrary);
-        removeBook(myLibrary, self);
-        console.log(myLibrary);
+        self.bookDialog.remove();        
+        removeBook(myLibrary, self);        
     })
      
 }
