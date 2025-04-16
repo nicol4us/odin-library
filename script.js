@@ -135,6 +135,14 @@ function Book(title, author, pages, color, status) {
         titleClass: "book-title",
         authorClass: "book-author"
     }
+    this.titlePart = {
+        classTitle: "label",
+        titleLabel: "Book Title",
+        classContent: "title-content",
+        buttonType : "button",
+        buttonClass : "edit-title-button",
+        buttonContent: "Edit Title"
+    }
     var self = this;
     this.element = createBookElement(self);
     this.bookDialog = createBookDialog(self);
