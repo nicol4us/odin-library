@@ -35,11 +35,11 @@ function appendAllElement(parent, arrayChildElement) {
 
 // (String, String, String, String) -> Element
 // To create dialog book section that consist 3 element
-function createBookDialogSection(container, sectionName, titleName, buttonName ) {    
-    var firstPart = createPart(container, "part", "", sectionName);
-    var secondPart = createPart(container, "part", "", titleName);
-    var thirdPart = createPart("button", "part", "", buttonName);
-    var mainContainer = appendAllElement(createPart(container, "section-part-dialog"), [firstPart, secondPart, thirdPart]);
+function createBookDialogSection(mainDiv, mainClass, firstDiv, firstClass, firstTitle, secondDiv, secondClass, secondTitle, button, buttonClass, buttonName ) {    
+    var firstPart = createPart(firstDiv, firstClass, firstTitle);
+    var secondPart = createPart(secondDiv, secondClass, secondTitle);
+    var thirdPart = createPart(button, buttonClass, buttonName);
+    var mainContainer = appendAllElement(createPart(mainDiv, mainClass), [firstPart, secondPart, thirdPart]);
     return mainContainer;
 }
 
@@ -73,12 +73,12 @@ function removeBook(array, self) {
 // To produce Element using dialog as tag
 function createBookDialog(self) {
     var dialog = createPart("dialog", "dialog-book");    
-    var top = createBookDialogSection(self.part.container, "Book Title", ": " + self.title, "Edit Title");
-    var middle = createBookDialogSection(self.part.container, "Author Name", ": "+ self.author, "Edit Name");
-    var bottom = createBookDialogSection(self.part.container, "Reading Status", ": " + self.status, "Edit Status");    
+    var top = createBookDialogSection("div","book-dialog-section", "div", self.titlePart.classTitle, self.titlePart.titleLabel, "div", self.titlePart.classContent, self.title, self.part.buttonType,self.titlePart.buttonClass , self.titlePart.buttonContent);
+    var middle = createBookDialogSection("div", "book-dialog-section", "div", self.authorPart.classAuthor, self.authorPart.authorLabel, "div", self.authorPart.classContent, self.author, self.part.buttonType, self.authorPart.buttonClass, self.authorPart.buttonContent);
+    var bottom = createBookDialogSection("div", "book-dialog-section", "div", "label", "Reading Status", "div", "status-content", self.status, self.part.buttonType, "edit-status-button", "Edit Status");    
     var closeDialog = createPart("button", "dialog-close-button", "", "Close");    
     var removeBook = createPart("button", "dialog-delete-button", "", "Remove Book");
-    var container = appendAllElement(createPart(self.part.container,"book-dialog-section"), [top, middle, bottom]);
+    var container = appendAllElement(createPart(self.part.container,"dialog-section-container"), [top, middle, bottom]);
     var buttonContainer = appendAllElement(createPart(self.part.container, "dialog-button-container"), [closeDialog, removeBook]);     
     dialog.appendChild(container);    
     dialog.appendChild(buttonContainer);
