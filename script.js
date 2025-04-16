@@ -156,9 +156,11 @@ function Book(title, author, pages, color, status) {
     this.element = createBookElement(self);
     this.bookDialog = createBookDialog(self);
     this.editTitleFormDialog = this.bookDialog.querySelector(".dialog-title-form");
+    this.editAuthorFormDialog = this.bookDialog.querySelector(".dialog-author-form");
     this.closeDialogButton = this.bookDialog.querySelector(".dialog-close-button"); 
     this.removeBookButton = this.bookDialog.querySelector(".dialog-delete-button");
     this.editTitleButton    = this.bookDialog.querySelector(".edit-title-button");
+    this.editAuthorButton   = this.bookDialog.querySelector(".edit-author-button");
     self.element.addEventListener("click", function(event) {
         self.bookDialog.showModal();
         setXPositionDialog(event,self);
@@ -174,6 +176,9 @@ function Book(title, author, pages, color, status) {
     })
     self.editTitleButton.addEventListener("click", function() {
         self.editTitleFormDialog.showModal();
+    })
+    self.editAuthorButton.addEventListener("click", function() {
+        self.editAuthorFormDialog.showModal();
     })
      
 }
