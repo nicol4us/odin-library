@@ -68,22 +68,26 @@ function removeBook(array, self) {
         }
     })
 }
+ 
 
 // (Object, String, String) -> Element
 // To produce Element using dialog as tag
 function createBookDialog(self) {
     var dialog = createPart("dialog", "dialog-book");    
-    var top = createBookDialogSection("div","book-dialog-section", "div","label", "Book Title", "div", "title-content", self.title,"button","edit-title-button", "Edit Title");    
+    var title = createBookDialogSection("div","book-dialog-section", "div","label", "Book Title", "div", "title-content", self.title,"button","edit-title-button", "Edit Title"); 
+    var titleDialog = appendAllElement(createPart("dialog", "dialog-title-form"),[createBookDialogSection("form", "edit-title-form", "div", "label", "Book Author", "input", "input-new-title", "", "button", "submit-new-title-button", "Confirm")]);     
     var middle = createBookDialogSection("div", "book-dialog-section", "div","label", "Author Name", "div", "author-content", self.author, "button", "edit-author-button", "Edit Name");
     var bottom = createBookDialogSection("div", "book-dialog-section", "div", "label", "Reading Status", "div", "status-content", self.status, self.part.buttonType, "edit-status-button", "Edit Status");    
     var closeDialog = createPart("button", "dialog-close-button", "", "Close");    
     var removeBook = createPart("button", "dialog-delete-button", "", "Remove Book");
-    var container = appendAllElement(createPart(self.part.container,"dialog-section-container"), [top, middle, bottom]);
+    var container = appendAllElement(createPart(self.part.container,"dialog-section-container"), [title, titleDialog ,middle, bottom]);
     var buttonContainer = appendAllElement(createPart(self.part.container, "dialog-button-container"), [closeDialog, removeBook]);     
     dialog.appendChild(container);    
     dialog.appendChild(buttonContainer);
     return dialog;
 }
+
+
 
 
 //(Object) -> Element
