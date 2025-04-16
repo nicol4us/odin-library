@@ -243,10 +243,11 @@ form {
 }
 
 
-.section-part-dialog {
+.book-dialog-section {
   display: grid;
   grid-template-columns: 2fr 2fr 1fr;
-  padding: 8px;
+  margin-bottom: 8px;
+ 
 }
 
 .dialog-button-container {
