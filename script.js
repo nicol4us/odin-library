@@ -68,6 +68,16 @@ function removeBook(array, self) {
         }
     })
 }
+
+// (String, String, String, String, String, String, String, String, String, String, String, String, String) -> Element
+// To append dialog section into container
+function appendDialog(dialog, dialogClass, mainDiv, mainClass, firstDiv, firstClass, firstTitle, secondDiv, secondClass, secondTitle, button, buttonClass, buttonName) {
+    var dialog = createPart(dialog, dialogClass);
+    var section = createBookDialogSection(mainDiv, mainClass, firstDiv, firstClass, firstTitle, secondDiv, secondClass, secondTitle, button, buttonClass, buttonName);
+    dialog.appendChild(section);
+    return dialog;
+
+}
  
 
 // (Object, String, String) -> Element
