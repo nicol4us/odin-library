@@ -126,6 +126,7 @@ function Book(title, author, pages, color, status) {
     this.part = {  
         class: "book",      
         container: "div",
+        buttonType: "button",
         dialog: "dialog",
         cover: "cover",
         pages: "pages",
@@ -134,15 +135,21 @@ function Book(title, author, pages, color, status) {
         topPage: "top-pages",
         titleClass: "book-title",
         authorClass: "book-author"
-    }
+    };
     this.titlePart = {
         classTitle: "label",
         titleLabel: "Book Title",
-        classContent: "title-content",
-        buttonType : "button",
+        classContent: "title-content",        
         buttonClass : "edit-title-button",
         buttonContent: "Edit Title"
-    }
+    };
+    this.authorPart = {
+        classAuthor: "label",
+        authorLabel: "Author Name",
+        classContent: "Author-content",
+        buttonClass: "edit-author-button",
+        buttonContent: "Edit Name"
+    };
     var self = this;
     this.element = createBookElement(self);
     this.bookDialog = createBookDialog(self);
