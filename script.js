@@ -161,6 +161,7 @@ function Book(title, author, pages, color, status) {
     this.closeDialogButton = this.bookDialog.querySelector(".dialog-close-button"); 
     this.removeBookButton = this.bookDialog.querySelector(".dialog-delete-button");
     this.editTitleButton    = this.bookDialog.querySelector(".edit-title-button");
+    this.submitNewTitleButton   = this.bookDialog.querySelector(".submit-new-title-button");
     this.editAuthorButton   = this.bookDialog.querySelector(".edit-author-button");
     this.editStatusButton   = this.bookDialog.querySelector(".edit-status-button");
     self.element.addEventListener("click", function(event) {
@@ -191,6 +192,17 @@ function Book(title, author, pages, color, status) {
         setXPositionDialog(event, self.editStatusFormDialog);
         setYPositionDialog(event,self.editStatusFormDialog);
     })
+    self.submitNewTitleButton.addEventListener("click", function(event){
+        event.preventDefault();
+        var input = self.bookDialog.querySelector(".input-new-title").value;       
+        var coverElement = self.element.querySelector("."+ self.part.titleClass);
+        var dialogElement = self.bookDialog.querySelector(".title-content");
+        self.title = input;
+        coverElement.textContent = input;
+        dialogElement.textContent = input;
+        self.editTitleFormDialog.close();
+    })
+
      
 }
 
