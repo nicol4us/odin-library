@@ -53,10 +53,10 @@ function setXPositionDialog(event, element) {
 
 // (Event, Object) -> ()
 // To set Y position of dialog element according from click event position
-function setYPositionDialog(event, self) {
+function setYPositionDialog(event, element) {
     var yPosition = event.clientY;
-    var dialogHeight = self.bookDialog.clientHeight;
-    self.bookDialog.style.top = (yPosition - (dialogHeight / 2)) + "px";
+    var dialogHeight = element.clientHeight;
+    element.style.top = (yPosition - (dialogHeight / 2)) + "px";
 }
 
 // (Array, Object) -> ()
@@ -166,7 +166,7 @@ function Book(title, author, pages, color, status) {
     self.element.addEventListener("click", function(event) {
         self.bookDialog.showModal();
         setXPositionDialog(event,self.bookDialog);
-        setYPositionDialog(event, self);
+        setYPositionDialog(event, self.bookDialog);
     })
     self.closeDialogButton.addEventListener("click", function() {              
         self.bookDialog.close();                
