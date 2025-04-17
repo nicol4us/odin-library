@@ -126,6 +126,20 @@ function createCoverBook(part, bookTitle, bookAuthor, color) {
     return cover;
 }
 
+// (Object, Element, Element, Element, String, String, String) -> ()
+// To add event listener to get input and set it as new property of Book
+function setNewInformation(self, property, dialogElement, bookElement, formElement, inputClass, coverClass, dialogClass) {
+    var input = dialogElement.querySelector(inputClass).value;
+    var dialog = dialogElement.querySelector(dialogClass);
+    if(!(coverClass === "")) {
+        var coverElement = bookElement.querySelector(coverClass);
+        coverElement.textContent = input;
+    }    
+    self[property] = input;    
+    dialog.textContent = input;
+    formElement.close();
+}
+
 // (String, String, Number, String) -> Object
 // To create Book object that keeps book title, author name, number of pages and status of read
 function Book(title, author, pages, color, status) {
@@ -155,15 +169,17 @@ function Book(title, author, pages, color, status) {
     var self = this;
     this.element = createBookElement(self);
     this.bookDialog = createBookDialog(self);
-    this.editTitleFormDialog = this.bookDialog.querySelector(".dialog-title-form");
-    this.editAuthorFormDialog = this.bookDialog.querySelector(".dialog-author-form");
+    this.editTitleFormDialog    = this.bookDialog.querySelector(".dialog-title-form");
+    this.editAuthorFormDialog   = this.bookDialog.querySelector(".dialog-author-form");
     this.editStatusFormDialog   = this.bookDialog.querySelector(".dialog-status-form");
-    this.closeDialogButton = this.bookDialog.querySelector(".dialog-close-button"); 
-    this.removeBookButton = this.bookDialog.querySelector(".dialog-delete-button");
-    this.editTitleButton    = this.bookDialog.querySelector(".edit-title-button");
+    this.closeDialogButton      = this.bookDialog.querySelector(".dialog-close-button"); 
+    this.removeBookButton       = this.bookDialog.querySelector(".dialog-delete-button");
+    this.editTitleButton        = this.bookDialog.querySelector(".edit-title-button");
     this.submitNewTitleButton   = this.bookDialog.querySelector(".submit-new-title-button");
-    this.editAuthorButton   = this.bookDialog.querySelector(".edit-author-button");
-    this.editStatusButton   = this.bookDialog.querySelector(".edit-status-button");
+    this.editAuthorButton       = this.bookDialog.querySelector(".edit-author-button");
+    this.submitNewAuthorButton  = this.bookDialog.querySelector(".submit-new-author-button");
+    this.editStatusButton       = this.bookDialog.querySelector(".edit-status-button");
+    this.submitNewStatusButton  = this.bookDialog.querySelector(".submit-new-status-button");
     self.element.addEventListener("click", function(event) {
         self.bookDialog.showModal();
         setXPositionDialog(event,self.bookDialog);
@@ -194,28 +210,19 @@ function Book(title, author, pages, color, status) {
     })
     self.submitNewTitleButton.addEventListener("click", function(event){
         event.preventDefault();
-        var input = self.bookDialog.querySelector(".input-new-title").value;       
-        var coverElement = self.element.querySelector("."+ self.part.titleClass);
-        var dialogElement = self.bookDialog.querySelector(".title-content");
-        self.title = input;
-        coverElement.textContent = input;
-        dialogElement.textContent = input;
-        self.editTitleFormDialog.close();
-    })     
+        setNewInformation(self, "title", self.bookDialog, self.element, self.editTitleFormDialog, ".input-new-title", "." + self.part.titleClass, ".title-content");        
+    }) 
+    self.submitNewAuthorButton.addEventListener("click", function(event){
+        event.preventDefault();
+        setNewInformation(self, "author", self.bookDialog, self.element, self.editAuthorFormDialog, ".input-new-author", "." + self.part.authorClass, ".author-content" );
+    })
+    self.submitNewStatusButton.addEventListener("click", function(event){
+        event.preventDefault();
+        setNewInformation(self, "status", self.bookDialog, self.element, self.editStatusFormDialog, ".input-new-status", "", ".status-content");
+    })
 }
 
-// (Object, Element, Element, Element, String, String, String) -> ()
-// To add event listener to get input and set it as new property of Book
-function setNewInformation(self, property, dialogElement, bookElement, formElement, inputClass, coverClass, dialogClass) {
-    var input = dialogElement.querySelector(inputClass).value;
-    var coverElement = bookElement.querySelector(coverClass);
-    var dialog = dialogElement.querySelector(dialogClass);
-    self[property] = input;
-    coverElement.textContent = input;
-    dialog.textContent = input;
-    formElement.close();
 
-}
 
 
 // (Book, ArrayOfBookContainer) -> ()
