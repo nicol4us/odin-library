@@ -85,11 +85,11 @@ function appendDialog(dialog, dialogClass, mainDiv, mainClass, firstDiv, firstCl
 function createBookDialog(self) {
     var dialog = createPart("dialog", "dialog-book");    
     var title = createBookDialogSection("div","book-dialog-section", "div","label", "Book Title", "div", "title-content", self.title,"button","edit-title-button", "Edit Title"); 
-    var titleDialog = appendDialog("dialog", "dialog-title-form", "form", "edit-title-form", "div", "label", "New Book Author", "input", "input-new-title", "", "button", "submit-new-title-button", "Confirm");        
+    var titleDialog = appendDialog("dialog", "dialog-title-form", "form", "edit-form", "div", "label", "New Book Title", "input", "input-new-title", "", "button", "submit-new-title-button", "Confirm");        
     var author = createBookDialogSection("div", "book-dialog-section", "div","label", "Author Name", "div", "author-content", self.author, "button", "edit-author-button", "Edit Name");
-    var authorDialog = appendDialog("dialog", "dialog-author-form", "form", "edit-author-form", "div", "label", "New Author Name","input", "input-new-author", "", "button", "submit-new-author-button", "Confirm");
+    var authorDialog = appendDialog("dialog", "dialog-author-form", "form", "edit-form", "div", "label", "New Author Name","input", "input-new-author", "", "button", "submit-new-author-button", "Confirm");
     var status = createBookDialogSection("div", "book-dialog-section", "div", "label", "Reading Status", "div", "status-content", self.status, self.part.buttonType, "edit-status-button", "Edit Status");  
-    var statusDialog = appendDialog("dialog", "dialog-status-form", "form", "edit-status-form", "div","label", "New Reading Status", "input", "input-new-status", "", "button", "submit-new-status-button", "Confirm");  
+    var statusDialog = appendDialog("dialog", "dialog-status-form", "form", "edit-form", "div","label", "New Reading Status", "input", "input-new-status", "", "button", "submit-new-status-button", "Confirm");  
     var closeDialog = createPart("button", "dialog-close-button", "", "Close");    
     var removeBook = createPart("button", "dialog-delete-button", "", "Remove Book");
     var container = appendAllElement(createPart(self.part.container,"dialog-section-container"), [title, titleDialog ,author, authorDialog ,status, statusDialog]);

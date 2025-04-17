@@ -255,3 +255,9 @@ form {
   justify-content: space-evenly;
   margin-top: 8px;
 }
+
+.edit-form {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+}
