@@ -176,14 +176,20 @@ function Book(title, author, pages, color, status) {
         self.bookDialog.remove();        
         removeBook(myLibrary, self);        
     })
-    self.editTitleButton.addEventListener("click", function() {
+    self.editTitleButton.addEventListener("click", function(event) {
         self.editTitleFormDialog.showModal();
+        setXPositionDialog(event, self.editTitleFormDialog);
+        setYPositionDialog(event, self.editTitleFormDialog);
     })
-    self.editAuthorButton.addEventListener("click", function() {
+    self.editAuthorButton.addEventListener("click", function(event) {
         self.editAuthorFormDialog.showModal();
+        setXPositionDialog(event, self.editAuthorFormDialog);
+        setYPositionDialog(event, self.editAuthorFormDialog);
     })
-    self.editStatusButton.addEventListener("click", function() {
+    self.editStatusButton.addEventListener("click", function(event) {
         self.editStatusFormDialog.showModal();
+        setXPositionDialog(event, self.editStatusFormDialog);
+        setYPositionDialog(event,self.editStatusFormDialog);
     })
      
 }
