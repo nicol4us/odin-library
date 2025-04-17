@@ -45,10 +45,10 @@ function createBookDialogSection(mainDiv, mainClass, firstDiv, firstClass, first
 
 // (Event, Object) -> ()
 // To set X position of dialog element according from click event position
-function setXPositionDialog(event, self) {
+function setXPositionDialog(event, element) {
     var xPosition = event.clientX;
-    var dialogWidth = self.bookDialog.clientWidth;
-    self.bookDialog.style.left = (xPosition - (dialogWidth / 2)) + "px";
+    var dialogWidth = element.clientWidth;
+    element.style.left = (xPosition - (dialogWidth / 2)) + "px";
 }
 
 // (Event, Object) -> ()
@@ -165,7 +165,7 @@ function Book(title, author, pages, color, status) {
     this.editStatusButton   = this.bookDialog.querySelector(".edit-status-button");
     self.element.addEventListener("click", function(event) {
         self.bookDialog.showModal();
-        setXPositionDialog(event,self);
+        setXPositionDialog(event,self.bookDialog);
         setYPositionDialog(event, self);
     })
     self.closeDialogButton.addEventListener("click", function() {              
