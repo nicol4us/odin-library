@@ -201,9 +201,20 @@ function Book(title, author, pages, color, status) {
         coverElement.textContent = input;
         dialogElement.textContent = input;
         self.editTitleFormDialog.close();
-    })
+    })     
+}
 
-     
+// (Object, Element, Element, Element, String, String, String) -> ()
+// To add event listener to get input and set it as new property of Book
+function setNewInformation(self, property, dialogElement, bookElement, formElement, inputClass, coverClass, dialogClass) {
+    var input = dialogElement.querySelector(inputClass).value;
+    var coverElement = bookElement.querySelector(coverClass);
+    var dialog = dialogElement.querySelector(dialogClass);
+    self[property] = input;
+    coverElement.textContent = input;
+    dialog.textContent = input;
+    formElement.close();
+
 }
 
 
