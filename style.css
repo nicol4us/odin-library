@@ -200,12 +200,14 @@
   transition: 1s;
 }
 
+dialog {
+  border-radius: 8px;
+  border: 1px solid #D6D9DC;
+}
+
 .dialogNewBook {
     justify-self: center;
     align-self: center;
-    border-radius: 8px;
-    border: 1px solid #D6D9DC;
-
 }
 
 
