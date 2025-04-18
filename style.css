@@ -264,3 +264,9 @@ form {
   flex-direction: row;
   gap: 8px;
 }
+
+.dialog-book button {
+  border-radius: 5px;
+  width: 120px;
+  background: #ffc18c;
+}
