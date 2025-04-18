@@ -94,6 +94,7 @@
 
 .book-shelf {
     transform-style: preserve-3d;
+    margin-bottom: 16px;
     
 }
 
