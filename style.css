@@ -248,7 +248,7 @@ form {
 
 .book-dialog-section {
   display: grid;
-  grid-template-columns: 2fr 2fr 1fr;
+  grid-template-columns: 1fr 2fr 1fr;
   margin-bottom: 8px;
  
 }
@@ -267,6 +267,6 @@ form {
 
 .dialog-book button {
   border-radius: 5px;
-  width: 120px;
+  width: 110px;
   background: #ffc18c;
 }
