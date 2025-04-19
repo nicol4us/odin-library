@@ -163,7 +163,8 @@
     transform: 
         translateX(calc(var(--bookWidth) - var(--bookDepth)/2)) 
         rotateY(90deg)
-        translateX(calc(var(--bookDepth)/2)) ;
+        translateX(calc(var(--bookDepth)/2)) 
+        translateZ(-2px);
 }
 
 .top-pages {
@@ -183,6 +184,7 @@
     border-top-right-radius: 3px;
     border-bottom-right-radius: 3px;
     transform: translateZ(calc(var(--bookDepth)*-1));
+    
     
 }
 
@@ -270,3 +272,4 @@ form {
   width: 110px;
   background: #ffc18c;
 }
+
