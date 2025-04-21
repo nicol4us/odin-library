@@ -279,6 +279,7 @@ form {
 }
 
 .dialog-book button {
+  border: none;
   border-radius: 5px;
   width: 110px;
   background: #ffc18c;
