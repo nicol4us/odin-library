@@ -228,7 +228,7 @@ function Book(title, author, pages, color, status) {
 // (Book, ArrayOfBookContainer) -> ()
 // To add Book into an array of container element
 function addBookToShelf(book, library , containerWidth) {    
-    const maxBookPerShelf = Math.floor(containerWidth/book.width);         
+    const maxBookPerShelf = Math.floor(containerWidth/book.width) * 2;         
     library.forEach(container => {
         if(container.childElementCount <= maxBookPerShelf) {
             container.appendChild(book.element);
