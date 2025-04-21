@@ -183,9 +183,20 @@
     background: red;
     border-top-right-radius: 3px;
     border-bottom-right-radius: 3px;
-    transform: translateZ(calc(var(--bookDepth)*-1));
+    transform: translateZ(calc(var(--bookDepth)*-1));  
     
-    
+}
+
+.back::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: -5px;
+  bottom: 0;
+  height: 10%;
+  width: 90%;
+  box-shadow: 25px -2px 2px -4px rgba(0,0,0,0.75);
+  transform: skewX(-60deg);
 }
 
 .book-side {
