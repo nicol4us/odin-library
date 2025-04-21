@@ -136,7 +136,7 @@ function setNewInformation(self, property, dialogElement, bookElement, formEleme
         coverElement.textContent = input;
     }    
     self[property] = input;    
-    dialog.textContent = input;
+    dialog.textContent = ": " + input;
     formElement.close();
 }
 
